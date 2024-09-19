@@ -32,6 +32,15 @@ class Bookstore:
         for ids in foundBook_ids:
             print(f"{self.inventory[ids]}")
 
+    def displayInventory(self):
+          for isbn, book in self.inventory.items():
+              print(f"ISBN: {isbn}\n"
+              f"Book Name: {book['name'].title()}\n"
+              f"Book Author: {book['author'].title()}\n"
+              f"Book Price: {book['price']}\n"
+              f"Book Quantity: {book['quantity']}\n")
+
+
 obj = Bookstore()
 
 
@@ -41,7 +50,7 @@ while True:
     # print("3. Update Quantity")
     # print("4. Process Order")
     # print("5. Generate Sales Report")
-    # print("6. Display Inventory")
+    print("6. Display Inventory")
     # print("7. Display Sales Data")
     print("8. Exit")
 
@@ -59,6 +68,9 @@ while True:
         case 2:
             q = input("Search By ISBN / author / Book Name")
             obj.searchBook(q)
+
+        case 6:
+            obj.displayInventory()
         
         case 8:
             break
