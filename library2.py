@@ -61,6 +61,31 @@ class Bookstore:
         self.inventory[isbn]["quantity"] += quantity
         print("Quantity updated successfully!")
 
+    def processOrder(self,isbn:int,customer_name:str,qty:int):
+        if isbn not in self.inventory:
+            print("Invalid ISBN, book not found.")
+            return
+        if qty>self.inventory[isbn]["quantity"]:
+            print("Insufficient Quantity!")
+            return
+        
+        if qty<=0:
+            print("Invalid Quantity!")
+            return
+        total_price = self.inventory[isbn]['price']*qty
+        self.inventory[isbn]["quantity"] -= qty
+
+        data = {"isbn":isbn,"customer_name":customer_name,"quantity":qty,"total_price":total_price}
+        self.salesData.append(data)
+
+    def displaySalesReport(self):
+        total_revenue = sum([txn['total_price'] for txn in self.salesData])
+        total_book_sold =sum( [txn['quantity'] for txn in self.salesData])
+        print("\n---------REVENUE DATA------------------")
+        print(f"Total Revenue: {total_revenue}")
+        print(f"Total Book Sold: {total_book_sold}")
+
+
 
 # Instantiate the bookstore object
 obj = Bookstore()
@@ -70,6 +95,8 @@ while True:
     print("\n1. Add Book")
     print("2. Search Book")
     print("3. Update Quantity")
+    print("4. Process Order")
+    print("5. Sales Report")
     print("6. Display Inventory")
     print("8. Exit")
 
@@ -90,6 +117,15 @@ while True:
 
         case 3:
             obj.UpdateQuantity()
+        
+        case 4:
+            isbn:int = int(input("Please Enter the ISBN of the Book: "))
+            customer_name:str = str(input("Please Enter Customer's Name: " ).title())
+            quantity:int = int(input("Please Enter total Qty you need: "))
+            obj.processOrder(isbn,customer_name,quantity)
+        
+        case 5:
+            obj.displaySalesReport()
 
         case 6:
             obj.displayInventory()
@@ -100,3 +136,4 @@ while True:
 
         case _:
             print("Invalid Choice!")
+1
