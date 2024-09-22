@@ -43,8 +43,8 @@ class Bank:
         """Check Balance"""
         return self.balance
 
+if __name__ =="__main__":
+    
+    obj = Bank("John Doe","savings")
+    obj.displayAllInfo()
 
-obj = Bank("John Doe","savings")
-print(obj)
-
-obj.displayAllInfo()
