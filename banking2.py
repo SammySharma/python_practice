@@ -2,6 +2,7 @@ import random
 
 
 class Bank:
+    """Handle Different Operations related to Banking!"""
     def __init__(self,holder_name:str,account_type:str) -> None: #Initializing the instance at the begining of Object
         self.account_holder_name = holder_name.title()
         self.account_number = random.randint(100000, 999999)
@@ -15,6 +16,7 @@ class Bank:
     
     
     def displayAllInfo(self):
+        """Display Information of a Customer!"""
         
         print("\n******Bank Account Information: *******")
         print(f"Account Holder's Name: {self.account_holder_name}")
@@ -23,11 +25,13 @@ class Bank:
         print(f"Account Type: {self.account_type}")
 
     def deposit(self, amount):
+        """Amount Deposite """
         self.balance += amount
         print(f"Deposit of {amount} successful.")
         print(f"New Balance: {self.balance}")
 
     def withdraw(self, amount):
+        """Amount Withdrawl"""
         if self.balance >= amount:
             self.balance -= amount
             print(f"Withdrawal of {amount} successful.")
@@ -36,10 +40,11 @@ class Bank:
             print("Insufficient funds.")
 
     def getBalance(self):
+        """Check Balance"""
         return self.balance
 
 
 obj = Bank("John Doe","savings")
 print(obj)
 
-#obj.displayAllInfo()
+obj.displayAllInfo()
