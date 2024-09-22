@@ -49,5 +49,8 @@ class Bank:
 if __name__ =="__main__":
     
     obj = Bank("John Doe","savings")
+    obj2 = Bank("Alice","current")
     obj.displayAllInfo()
+    obj2.displayAllInfo()
+    print(obj+obj2)
 
