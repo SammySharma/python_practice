@@ -14,6 +14,9 @@ class Bank:
     def __str__(self) -> str: #Dunder Method or Magic Method
         return f"{self.account_holder_name},Balance is : {self.balance}"
     
+    def __add__(self,other:'Bank')->float:
+        total = self.balance+other.balance
+        return total
     
     def displayAllInfo(self):
         """Display Information of a Customer!"""
