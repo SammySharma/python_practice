@@ -15,7 +15,8 @@ class Employee(Company):
 
 obj = Employee("John")
 
-print(obj._project)
+print(obj._project) #Accessing Protected object with use of Inheritance
+
 """
 In Above example, you can see that "self._project" is part of company and it is a protected attribute.
 If i call objected are comment line 13 then i will only get "I am constructor of Employee" but you can clearly
