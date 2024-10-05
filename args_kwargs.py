@@ -27,9 +27,11 @@ add(10, 20, 30, 40, 50, 60)
 print("-----------------Example 3-------------------")
 
 
-def add(*args, **kwargs):
+def add(address, phone, *args, name="", age=0, **kwargs):
     print(f"Args: {args}")
+    print(f"Name: {name}")
+    print(f"Age: {age}")
     print(f"Kwargs: {kwargs}")
 
 
-add(10, 20, 30, 40, 50, 60, name="Hello", age=20)
+add("Surat", 123, name="Hello", x=10, age=20, gender="male")
