@@ -1,0 +1,8 @@
+def func():
+    print(1)
+    print(2)
+    func()
+    print(3)
+    print(4)
+
+func()
