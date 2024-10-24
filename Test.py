@@ -1,8 +1,8 @@
-def func():
-    print(1)
-    print(2)
-    func()
-    print(3)
-    print(4)
+def backtracking2(i: int, n: int) -> None:
+    if i<1:
+        return
+    backtracking2(i-1, n)  # Decrement i instead of n
+    print(i)
 
-func()
+if __name__ == "__main__":
+    backtracking2(5, 5)  # Call with i starting at 5
